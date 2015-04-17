@@ -1,0 +1,128 @@
+<HTML lang="hu-HU">
+<HEAD>
+    <meta charset="UTF-8">
+	<TITLE> Solar Powered Naval Drone </TITLE>
+	<meta http-equiv="refresh" content="300">
+	<link href="style.css" rel="stylesheet" type="text/css">
+	<script type="text/JavaScript", src = "js/login.js" ></script>
+	<script type="text/JavaScript", src = "js/jquery-2.1.3.min.js" ></script>
+	
+	<style type="text/css">
+	 h1
+	 {
+		font-size: 48px;
+		text-align: center;
+		text-shadow: 0 0 3px #FF0000;
+	 }
+	 h2 { text-align: center; }
+	 h3 { font-size: 13px; font-family: courier; }
+	 </style>
+</HEAD>
+<BODY align = "center">
+	<div id="page"> 
+		<div id="header">
+		<table align="center">
+			<tr>
+				<td> &nbsp; </td>
+				<td> <h1> Solar Powered Naval Drone </h1> </td>
+				<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td>  </td>
+				<td> &nbsp; </td>
+			</tr>
+		</table>
+		</div>
+		<div id="navi">
+		<table align="center" class="menu" width="770px">
+			<tr>
+				<td> <a href="index.html"> Home </a></td>
+				<td> <a href='information.html'> Information</a></td>
+				<td> <a href='gallery.html'> Gallery </a></td>
+				<td> <a href='log.html'> Changelog </a></td>
+				<td > <a href='contact.html'> Contact </a></td>
+			</tr>
+		</table>
+		</div>
+		<div id="left">
+		</div>
+		<div id="main">
+		<iframe src="ChangeLog.txt" width="500" height="500" > </iframe>
+		</div>
+		<div id="right">
+		<table>
+			<tr>
+				<td> <input type="image" src= "content/imagebal.png" alt="Balra" width= "70">  </td>
+				<td> <input type="image" src= "content/imageelo.png" alt="Előre" width= "70"> </td>
+				<td> <input type="image" src= "content/imagejobb.png" alt="Jobbra" width= "70"> </td>
+			</tr>
+			<tr>
+				<td> &nbsp;<br> </td>
+				<td> &nbsp;<br> </td>
+				<td> &nbsp;<br> </td>
+			</tr>
+			<tr>
+				<td> &nbsp; </td>
+				<td> <input type="image" src= "content/imagehat.png" alt="Hátra" width= "70"> </td>
+				<td> &nbsp; </td>
+			</tr>
+		</table>
+			<br>
+		<table align="center">
+			<tr>
+			<td> &nbsp; </td>
+				<td> 
+					<div class="stop">
+						<p> &nbsp; <a id="button_stop" onclick="getElementById('stop').innerHTML=Date()"> <b>Engine<br>Stop!</b></a> </p>
+						<p id="stop"></p>
+					</div>
+				</td>
+			<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<td> &nbsp;</td>
+			</tr>
+			</br>
+			<tr>
+			<td> &nbsp; </td>
+				<td> 	
+					<div class="starting">
+						<p> <a id="button_start" onclick="getElementById('start').innerHTML=Date()"><b>Engine<br>Start!</b></a> </p>
+						<p id="start"></p>
+					</div>
+				</td>
+			<td> &nbsp; </td>
+			</tr>
+			<tr>
+				<form action = "php/setdestination.php" method="post">
+				<label for="lat"> Lat: </label>
+				<input type="text", name="lat" id ="lat" size="10">
+				<br><br>
+				<label for="lat"> Lon: </label>
+				<input type="text", name="lon" id ="lon" size="10">
+				<br><br>
+				<input type="submit" value="Send">
+				</form>
+			</tr>
+		</table>
+		</div>
+		<div id="footer">
+		<table width="100%">
+		<tr>
+			<td width="30%" align = "center"> <h4> Óbudai Egyetem Alba Regia Műszaki Kar /*2015*/ </h4> </td>
+			<td width="28%" align = "center"> <h4>8000 Székesfehérvár, Budai út 45. </h4> </td>
+			<td width="27%" align = "center"> <h4>Szoftvertechnológia 2 </h4> </td>
+			<td width="15%" align = "center"> <h4>Legogroup #3 </h4> </td>
+		</tr>
+		<tr>
+			<td> <h3> Page Version: 0.0.3 </h3>
+			</td>
+			<td></td>
+			<td></td>
+			<td></td>
+			</tr>
+		</div>
+	</div>
+</BODY>
+</HTML>
