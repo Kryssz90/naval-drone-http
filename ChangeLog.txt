@@ -1,0 +1,25 @@
+Solar Powered Neval Drone (Change Log) 2015.02.10.
+------------------------------------------------
+0.0.1
+
+- Index.html created
+- CSS implemented (style.css)
+- Google Map embedded
+- Login: password as form
+
+0.0.2a
+
+- Control Panel created
+- Engine Stop/Start function 
++ Update: Login: Username and reset button added as form
+- Add refresh time (300 sec)
+
+0.0.2b
+
+- Page Menu navigation
+- Fix some position fault
+- JavaScript implemented (login.js)
+
+0.0.2c
+
+- Last Modified script added

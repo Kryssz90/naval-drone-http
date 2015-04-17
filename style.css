@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+body
+{
+	background-color: #C3D4E5;
+	font: 12px Arial;
+	margin: auto;
+}
+#page
+{
+	width: 1280px;
+	margin: 20px;
+	display: inline-block;
+}
+#header
+{
+	width: 1260px;
+	height: 100px;
+	padding: 10px;
+	background-color: #5E4D3C;
+	font: 30px Verdana;
+	text-align: center;
+}
+#navi
+{
+	width: 1280px;
+	height: 30px;
+	padding: 0px;
+	background-color: #5E4D3C;
+	font: 30px Verdana;
+	text-align: center;
+}
+#left
+{
+	width: 225px;
+	padding: 10px;
+	float: left;
+	background-color: #8E4D3C;
+}
+#main
+{
+	width: 770px;
+	padding: 10px;
+	float: left;
+	background-color: #FFFFFF;
+}
+#right
+{
+	width: 225px;
+	padding: 10px;
+	float: left;
+	background-color: #8E4D3C;
+}
+#footer
+{
+	width: 1260px;
+	height: 65px;
+	padding: 10px;
+	background-color: #6192DF;
+	clear: both;
+}
+#button_start {
+    display: block;
+    width:100px;
+    margin:10px auto;
+    padding:7px 13px;
+    text-align:center;
+    background:#a2bb33;
+    font-size:20px;
+    font-family: 'Arial', sans-serif;
+    color:#ffffff;
+    white-space: nowrap;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+	border-radius: 50px 50px 50px 50px;
+
+}
+#button_start:active {
+    vertical-align: top;
+    padding: 8px 13px 6px;
+	color: black;
+}
+.start a {
+    text-decoration: none;
+}
+#button_stop {
+    display: block;
+    width:100px;
+    margin:10px auto;
+    padding:7px 13px;
+    text-align:center;
+    background:#CD1919;
+    font-size:20px;
+    font-family: 'Arial', sans-serif;
+    color:#ffffff;
+    white-space: nowrap;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    border-radius: 50px 50px 50px 50px;
+}
+#button_stop:active {
+    vertical-align: top;
+    padding: 8px 13px 6px;
+	color: black;
+	
+}
+.stop a {
+    text-decoration: none;
+}
+
+table.menu {
+    padding: 0;
+    margin-bottom: 10px;
+}
+table.menu td {
+    display: inline;
+    margin-right: 3px;
+}
+table.menu td a {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #696969;
+    border-radius: 16px 16px 0 0;
+}
+table.menu td a:hover {
+    color: white;
+    background-color: black;
+}
