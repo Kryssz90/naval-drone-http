@@ -2,7 +2,7 @@ Solar Powered Neval Drone (Change Log) 2015.02.10.
 ------------------------------------------------
 0.0.1
 
-- index.html created
+- Index.html created
 - CSS implemented (style.css)
 - Google Map embedded
 - Login: password as form
@@ -23,12 +23,3 @@ Solar Powered Neval Drone (Change Log) 2015.02.10.
 0.0.2c
 
 - Last Modified script added
-
-0.0.3
-
-- gallery.html created
-- gallery implemented
-- information.html created
-- log.html created using ChangeLog.txt
-- contact.html created
-- footer text
