@@ -29,6 +29,8 @@
     var marker;
     var clickmarker;
     var cityCircle;
+    var oldlat=0;
+	var oldlon=0;
       function initialize() {
         var mapOptions = {
           center: { lat: 47.188593, lng: 18.4180883},
@@ -55,8 +57,8 @@
 cityCircle = new google.maps.Circle(circleOptions);
 //marker on click and get lat and lon
 		google.maps.event.addListener(map, 'click', function(event) {
-			document.getElementById("lat").value = event.latLng.lat();
-			document.getElementById("lon").value = event.latLng.lng();
+			document.getElementById("lat").value = event.latLng.lat().toFixed(6);
+			document.getElementById("lon").value = event.latLng.lng().toFixed(6);
 			if (clickmarker) { clickmarker.setMap(null); }
             clickmarker = new google.maps.Marker({
             	icon: {
@@ -110,7 +112,8 @@ cityCircle = new google.maps.Circle(circleOptions);
 	  	  bear-=1;
 	  	  bear=bear/10;
 	  	  
-	  	  var circleOptions = {
+	  	  
+	  	 var circleOptions = {
       		strokeColor: '#FF0000',
       		strokeOpacity: 0.8,
       		strokeWeight: 2,
@@ -120,8 +123,6 @@ cityCircle = new google.maps.Circle(circleOptions);
       		center:  new google.maps.LatLng(lat,lon),
       		radius: acc
     		};
-	  	  
-	  	  
 	  	  
 	  	  marker.setMap(null);
 	  	  marker = new google.maps.Marker({
@@ -137,8 +138,14 @@ cityCircle = new google.maps.Circle(circleOptions);
    		 	map: map,
    		 	title:time
 			});
-		cityCircle.setMap(null);
-		cityCircle = new google.maps.Circle(circleOptions);
+		
+		if(oldlat!=lat || oldlon!=lon)
+		{
+			cityCircle.setMap(null);
+			cityCircle = new google.maps.Circle(circleOptions);
+		}
+		oldlat=lat;
+		oldlon=lon;
 		
 	        }
     	  }
