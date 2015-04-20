@@ -121,7 +121,8 @@ cityCircle = new google.maps.Circle(circleOptions);
       		fillOpacity: 0.35,
       		map: map,
       		center:  new google.maps.LatLng(lat,lon),
-      		radius: (acc/10)
+      		radius: (acc/10),
+      		clickable: false
     		};
 	  	  
 	  	  marker.setMap(null);
