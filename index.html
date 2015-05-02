@@ -25,6 +25,7 @@
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDfdwu_jII4_OzMqk-Kw2gkXlLb3txImIE">
     </script>
     <script type="text/javascript">
+    var timediff;
     var map ;
     var marker;
     var clickmarker;
@@ -75,6 +76,36 @@ cityCircle = new google.maps.Circle(circleOptions);
       }
       
       setInterval("getData()", 500);
+      setInterval("getStats()", 500);
+      
+      syncTime();
+      
+      function syncTime()
+      {
+      		if (window.XMLHttpRequest)
+  		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	   		 XHRsync=new XMLHttpRequest();
+	   	}
+	  	else
+  		  {// code for IE6, IE5
+	    		XHRsync=new ActiveXObject("Microsoft.XMLHTTP");
+  		  }
+
+	      XHRsync.onreadystatechange=function()
+    	  {
+     	  if (XHRsync.readyState==4 && XHRsync.status==200)
+      	  {
+      	  	servertime = XHRsync.responseText;
+      	  	server = new Date(servertime);
+      	  	
+      	  	timediff = new Date()-server.getTime();
+
+      	  }
+      	  }
+      	  	
+      	  XHRsync.open("GET","php/gettime.php",true);
+    	  XHRsync.send();
+      }
       
       function getData()
 	  {
@@ -155,6 +186,40 @@ cityCircle = new google.maps.Circle(circleOptions);
 
 	  }
       google.maps.event.addDomListener(window, 'load', initialize);
+      
+      function getStats()
+      {
+      
+      	if (window.XMLHttpRequest)
+  		  {// code for IE7+, Firefox, Chrome, Opera, Safari
+	   		 XHRstatGet=new XMLHttpRequest();
+	   	}
+	  	else
+  		  {// code for IE6, IE5
+	    		XHRstatGet=new ActiveXObject("Microsoft.XMLHTTP");
+  		  }
+
+	      XHRstatGet.onreadystatechange=function()
+    	  {
+     	  if (XHRstatGet.readyState==4 && XHRstatGet.status==200)
+      	  {
+      	  	stats = XHRstatGet.responseText;
+      	  	stats = stats.split(";");
+      	  	d = new Date(stats[2]);
+      	  	timed = new Date().getTime()-d.getTime()-timediff;
+      	  	timed = timed / 1000;
+      	  	
+      	  	document.getElementById("active").innerHTML = (timed > 5 ? "OFFLINE" : "ONLINE");
+      	  	document.getElementById("voltage").innerHTML = stats[5] + " V";
+      	  	document.getElementById("bluetooth").innerHTML = (stats[4] == "1" ? "CONNECTED" : "-");
+      	  	document.getElementById("gps").innerHTML = (stats[3] == "1" ? "ACTIVE" : "-");
+      	  }
+      	  }
+      	  	
+      	  XHRstatGet.open("GET","php/getstatus.php",true);
+    	  XHRstatGet.send();
+      	
+      }
       
       function sendlatlon()
       {
@@ -271,6 +336,7 @@ src="https://www.google.com/maps/embed/v1/view?zoom=11&center=47.1860,18.4221&se
 			<div id="map-canvas"></div>
 		</div>
 		<div id="right">
+		<!--
 		<table>
 			<tr>
 				<td> <input type="image" src= "content/imagebal.png" alt="Balra" width= "70">  </td>
@@ -288,8 +354,10 @@ src="https://www.google.com/maps/embed/v1/view?zoom=11&center=47.1860,18.4221&se
 				<td> &nbsp; </td>
 			</tr>
 		</table>
+		-->
 			<br>
 		<table align="center">
+		<!--
 			<tr>
 			<td> &nbsp; </td>
 				<td> 
@@ -303,14 +371,22 @@ src="https://www.google.com/maps/embed/v1/view?zoom=11&center=47.1860,18.4221&se
 			<tr>
 				<td> &nbsp;</td>
 			</tr>
+			-->
 			</br>
 			<tr>
 			<td> &nbsp; </td>
-				<td> 	
+				<td> 	<!--
 					<div class="starting">
 						<p> <a id="button_start" onclick="getElementById('start').innerHTML=Date()"><b>Engine<br>Start!</b></a> </p>
 						<p id="start"></p>
-					</div>
+					</div>-->
+					<table>
+					 <tr><td>Active:</td> <td> <span id="active"></span></td> </tr>
+					<tr><td>Voltage:</td> <td>  <span id="voltage"></span></td> </tr>
+					<tr><td>GPS: </td> <td> <span id="gps"></span></td> </tr>
+					<tr><td>Bluetooth:</td> <td>  <span id="bluetooth"></span></td> </tr>
+					</table>
+					<br />
 				</td>
 			<td> &nbsp; </td>
 			</tr>
