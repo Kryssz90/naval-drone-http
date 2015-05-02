@@ -187,6 +187,13 @@ cityCircle = new google.maps.Circle(circleOptions);
       	 speed = document.getElementById("speed").value;
       	 deg = document.getElementById("deg").value;
       	 
+      	 if(document.getElementById("negative").checked)
+      	 {
+      	 	speed = -speed;
+      	 }
+      	 
+      	 
+      	 
       	 deg = deg / 100.0;
       	 if(deg < 0)
       	 {
@@ -332,6 +339,9 @@ src="https://www.google.com/maps/embed/v1/view?zoom=11&center=47.1860,18.4221&se
 				<label for="lat"> Speed: </label>
 				<input type="range" id="speed" min="0" max="127" value="0">
 				<br><br>
+				<label for="negative"> Backward: </label>
+				<input type="checkbox" id="negative" />
+				<br /><br />
 				<input type="button" value="Send" onclick="sendAltDirection()">
 				</form>
 				</td>
