@@ -44,7 +44,12 @@
     	position: new google.maps.LatLng(47.198593,18.4180883),
     	map: map,
     	title:"Hello World!"
-});
+ 		});
+
+
+
+
+
  var circleOptions = {
       		strokeColor: '#FF0000',
       		strokeOpacity: 0.8,
@@ -74,6 +79,8 @@ cityCircle = new google.maps.Circle(circleOptions);
    			title: 'Destination'});
                 });
       }
+      
+      
       
       setInterval("getData()", 500);
       setInterval("getStats()", 500);
@@ -106,6 +113,58 @@ cityCircle = new google.maps.Circle(circleOptions);
       	  XHRsync.open("GET","php/gettime.php",true);
     	  XHRsync.send();
       }
+      
+      function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
+}
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
+}
+      
+      function disableall()
+      {
+      	if(getCookie("login") == "OK") return;
+      	elems = document.getElementsByTagName("input");
+      	for( i = 0; i< elems.length; i++)
+      	{
+      		elems[i].disabled  = true;
+      	}
+      	document.getElementById("password").disabled = false;
+      	document.getElementById("login").disabled = false;
+      }
+      
+      function enableall()
+      {
+      	pass = document.getElementById("password").value;
+      	
+      	p1 = 12*3+15*77+123*78-22*88-12+9-19;
+      	
+      	if(pass == p1)
+      	{
+      		elems = document.getElementsByTagName("input");
+      		for( i = 0; i< elems.length; i++)
+      		{
+      			elems[i].disabled  = false;
+      		}
+      	}
+      	
+      	setCookie("login","OK",1);
+      	
+      	
+      }
+      
+      
       
       function getData()
 	  {
@@ -322,14 +381,16 @@ cityCircle = new google.maps.Circle(circleOptions);
 		<div id="left">
 		</div>
 		<div id="main">
-			<form name="login">
+			<!-- <form name="login">
 			Username:
-			<input name="id" type="text" placeholder="Type here!" maxlength="8" size="10">
+			<input name="id" type="text" placeholder="Type here!" maxlength="8" size="10"> -->
 			Password: 
-			<input name="pass" type="password" placeholder="Type here!" maxlength="8" size="10">
-			<input type="button" value="Login" onClick="checkpoint(this.form)"> 
+			<input name="pass" type="password" id="password" placeholder="Password" maxlength="8" size="10">
+			<input type="button" value="Login" id="login" onClick="enableall()"> 
+			<!--
+			
 			<input type="Reset" value="Reset">
-			</form>
+			</form>-->
 			</br> 
 			<!--<iframe width="600" height="450" frameborder="0" style="border:0"
 src="https://www.google.com/maps/embed/v1/view?zoom=11&center=47.1860,18.4221&sensor=false"></iframe>-->
@@ -441,5 +502,8 @@ src="https://www.google.com/maps/embed/v1/view?zoom=11&center=47.1860,18.4221&se
 			</tr>
 		</div>
 	</div>
+	<script>
+		disableall();
+	</script>
 </BODY>
 </HTML>
